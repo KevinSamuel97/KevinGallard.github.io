@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carta Poética Nocturna</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet"> <!-- Fuente bonita -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
         body {
             display: flex;
@@ -12,17 +12,17 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background: #1a1a2e; /* Fondo oscuro */
+            background: #1a1a2e;
             overflow: hidden;
             position: relative;
-            font-family: Arial, sans-serif; /* Fuente por defecto */
+            font-family: Arial, sans-serif;
         }
 
         .carta {
             width: 90%;
-            max-width: 400px; /* Ancho máximo para dispositivos más grandes */
+            max-width: 400px;
             height: 400px;
-            background: #FF69B4; /* Color rosado */
+            background: #FF69B4;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(255, 20, 147, 0.5);
             position: relative;
@@ -34,40 +34,39 @@
             transform: perspective(600px);
             transition: transform 0.5s ease-in-out;
             z-index: 1;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%); /* Forma de carta */
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
         }
 
         .mensaje {
             color: white;
-            font-size: 24px;
-            margin-top: 50px; /* Espacio para que no esté cubierto por los corazones */
+            font-size: 20px; /* Ajuste de tamaño para móviles */
+            margin-top: 50px;
             text-align: center;
-            display: none; /* Oculto por defecto */
+            display: none;
         }
 
         .aviso {
-            font-family: 'Great Vibes', cursive; /* Fuente bonita */
-            color: #ffeb3b; /* Color dorado */
-            font-size: 22px;
+            font-family: 'Great Vibes', cursive;
+            color: #ffeb3b;
+            font-size: 18px; /* Ajuste de tamaño para móviles */
             text-align: center;
             position: absolute;
-            top: 10px; /* Posición siempre visible */
+            top: 10px;
             z-index: 2;
-            pointer-events: none; /* No puede ser clickeado */
         }
 
         .corazones {
             position: absolute;
-            bottom: 50px; /* Posición relativa a la carta */
+            bottom: 50px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 2;
-            display: none; /* Oculto por defecto */
+            display: none;
         }
 
         .corazones span {
             font-size: 24px;
-            animation: salir 1s forwards; /* Animación de salida */
+            animation: salir 1s forwards;
         }
 
         @keyframes salir {
@@ -78,13 +77,13 @@
         .botones {
             display: flex;
             justify-content: space-between;
-            width: 90%; /* Ajustar el ancho */
+            width: 90%;
             margin-top: auto;
             margin-bottom: 20px;
         }
 
         button {
-            padding: 10px 20px;
+            padding: 10px;
             background: linear-gradient(90deg, #FF69B4, #FF1493);
             border: none;
             border-radius: 5px;
@@ -93,28 +92,29 @@
             cursor: pointer;
             box-shadow: 0 0 15px rgba(255, 20, 147, 0.7);
             transition: transform 0.2s;
-            width: 48%; /* Ajustar el ancho de los botones */
+            flex: 1; /* Para que ambos botones ocupen el mismo espacio */
+            margin: 0 5px; /* Espaciado entre botones */
         }
 
         button:hover {
             transform: scale(1.05);
         }
 
-        .estrella {
+        .estrella, .estrella-fugaz {
             position: absolute;
-            width: 5px;
-            height: 5px;
             background: white;
             border-radius: 50%;
+        }
+
+        .estrella {
+            width: 5px;
+            height: 5px;
             animation: parpadeo 1.5s infinite;
         }
 
         .estrella-fugaz {
-            position: absolute;
             width: 10px;
             height: 2px;
-            background: white;
-            border-radius: 10px;
             animation: fugaz 1s linear infinite;
         }
 
@@ -129,36 +129,34 @@
         }
 
         .instrucciones {
-            font-size: 12px; /* Texto pequeño */
+            font-size: 12px;
             color: white;
             text-align: center;
-            margin-top: 10px; /* Espacio entre la carta y las instrucciones */
-            z-index: 2;
+            margin-top: 10px;
         }
 
         .piña {
             position: absolute;
-            bottom: 70px; /* Ajusta la posición de la piña */
-            width: 80px; /* Tamaño de la piña */
-            z-index: 3; /* Asegura que esté por encima de la carta */
+            bottom: 70px;
+            width: 80px;
+            z-index: 3;
         }
 
-        /* Adaptaciones para dispositivos móviles */
         @media (max-width: 600px) {
             .carta {
-                height: 300px; /* Menor altura en móviles */
+                height: 300px;
             }
             .mensaje {
-                font-size: 20px; /* Menor tamaño de fuente */
+                font-size: 16px; /* Menor tamaño en móviles */
             }
             .aviso {
-                font-size: 16px; /* Menor tamaño de fuente */
+                font-size: 16px; /* Menor tamaño en móviles */
             }
             button {
-                padding: 8px 16px; /* Menos padding */
+                padding: 8px; /* Menos padding en móviles */
             }
             .piña {
-                width: 50px; /* Tamaño de la piña en móviles */
+                width: 50px;
             }
         }
     </style>
@@ -176,13 +174,12 @@
         <button id="cerrar" disabled>Cerrar</button>
     </div>
     
-    <div class="instrucciones">Haga click "Abrir" para ver el mensaje y "Cerrar" para ocultarlo y abrir de nuevo para ver otro y cerrar para poder abrir de nuevo jaja.</div>
+    <div class="instrucciones">Haga click "Abrir" para ver el mensaje y "Cerrar" para ocultarlo.</div>
 
     <script>
         const carta = document.getElementById('carta');
         const corazones = document.getElementById('corazones');
         const mensaje = document.getElementById('mensaje');
-        const aviso = document.getElementById('aviso');
 
         const frasesBonitas = [
             "Me va a dar de los besitos que me gustan a mi?.",
@@ -219,7 +216,7 @@
                     spanCorazones.forEach(span => {
                         span.style.animation = 'salir 1s forwards'; // Aplicar animación
                     });
-                }, 50); // Pequeña pausa para permitir que se añadan los corazones
+                }, 50);
 
                 // Habilitar el botón de cerrar
                 document.getElementById('cerrar').disabled = false;
@@ -231,13 +228,13 @@
             if (cartaAbierta) {
                 cartaAbierta = false;
                 mensaje.style.display = 'none';
-                corazones.style.display = 'none'; // Ocultar corazones
+                corazones.style.display = 'none';
                 const spanCorazones = document.querySelectorAll('.corazones span');
-                spanCorazones.forEach(span => span.remove()); // Limpiar corazones al cerrar
+                spanCorazones.forEach(span => span.remove());
 
                 // Habilitar el botón de abrir
                 document.getElementById('abrir').disabled = false;
-                document.getElementById('cerrar').disabled = true; // Deshabilitar el botón de cerrar
+                document.getElementById('cerrar').disabled = true;
             }
         };
 
@@ -271,6 +268,7 @@
     </script>
 </body>
 </html>
+
 
 
 
