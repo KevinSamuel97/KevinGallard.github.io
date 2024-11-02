@@ -15,10 +15,12 @@
             background: #1a1a2e; /* Fondo oscuro */
             overflow: hidden;
             position: relative;
+            font-family: Arial, sans-serif; /* Fuente por defecto */
         }
 
         .carta {
-            width: 300px;
+            width: 90%;
+            max-width: 400px; /* Ancho máximo para dispositivos más grandes */
             height: 400px;
             background: #FF69B4; /* Color rosado */
             border-radius: 10px;
@@ -76,7 +78,7 @@
         .botones {
             display: flex;
             justify-content: space-between;
-            width: 80%;
+            width: 90%; /* Ajustar el ancho */
             margin-top: auto;
             margin-bottom: 20px;
         }
@@ -91,6 +93,7 @@
             cursor: pointer;
             box-shadow: 0 0 15px rgba(255, 20, 147, 0.7);
             transition: transform 0.2s;
+            width: 48%; /* Ajustar el ancho de los botones */
         }
 
         button:hover {
@@ -143,17 +146,16 @@
         /* Adaptaciones para dispositivos móviles */
         @media (max-width: 600px) {
             .carta {
-                width: 80%;
-                height: 300px;
+                height: 300px; /* Menor altura en móviles */
             }
             .mensaje {
-                font-size: 20px;
+                font-size: 20px; /* Menor tamaño de fuente */
             }
             .aviso {
-                font-size: 16px;
+                font-size: 16px; /* Menor tamaño de fuente */
             }
             button {
-                padding: 8px 16px;
+                padding: 8px 16px; /* Menos padding */
             }
             .piña {
                 width: 50px; /* Tamaño de la piña en móviles */
@@ -166,7 +168,7 @@
     <div class="carta" id="carta">
         <div class="mensaje" id="mensaje"></div>
         <div class="corazones" id="corazones"></div>
-        <img src="https://www.pinclipart.com/picdir/middle/576-5762970_imagenes-de-frutas-animadas-clipart.png" alt="Piña Enamorada" class="piña" /> <!-- Cambia esta URL por una imagen de piña válida -->
+        <img src="https://www.pinclipart.com/picdir/middle/576-5762970_imagenes-de-frutas-animadas-clipart.png" alt="Piña Enamorada" class="piña" />
     </div>
 
     <div class="botones">
@@ -269,6 +271,7 @@
     </script>
 </body>
 </html>
+
 
 
 
